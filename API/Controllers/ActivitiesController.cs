@@ -1,3 +1,4 @@
+using System.Threading;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,8 +21,8 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Activity>>> List() {
-            return await _mediator.Send(new ListAll.Query());
+        public async Task<ActionResult<List<Activity>>> List(CancellationToken ct) {
+            return await _mediator.Send(new ListAll.Query(), ct);
         }
 
         [HttpGet("{id}")]
