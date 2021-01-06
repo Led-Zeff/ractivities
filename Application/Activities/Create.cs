@@ -19,6 +19,7 @@ namespace Application.Activities
             public string City { get; set; }
             public string Venue { get; set; }
         }
+        
         public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext _dataContext;
